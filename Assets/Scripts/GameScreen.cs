@@ -37,9 +37,9 @@ namespace Things
 
         #region Private methods
 
-        private void CreateHearts()
+        private void CreateHearts(int hp)
         {
-            for (int i = 0; i < GameService.Hp; i++)
+            for (int i = 0; i < hp; i++)
             {
                 _hpHearts.Add(Instantiate(_hpPrefab, _HpCounter));
             }
@@ -47,8 +47,22 @@ namespace Things
 
         private void UpdateHp(int hp)
         {
-            _hpLabel.text = $"HP: {hp}";
-            CreateHearts();
+            if (hp > _hpHearts.Count)
+            {
+                CreateHearts(hp);
+            }
+
+            for (int i = 0; i < _hpHearts.Count; i++)
+            {
+                if (i < hp)
+                {
+                    _hpHearts[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    _hpHearts[i].SetActive(false);
+                }
+            }
         }
 
         private void UpdateScore(int score)

@@ -9,7 +9,7 @@ namespace Things
         #region Variables
 
         [SerializeField] private int _scoreForThing;
-        [SerializeField] private GameService _gameService;
+        [SerializeField] protected GameService _gameService;
 
         #endregion
 
@@ -29,7 +29,7 @@ namespace Things
 
         #region Private methods
 
-        private void PerformActions()
+        protected virtual void PerformActions()
         {
             _gameService.ChangeScore(_scoreForThing);
         }

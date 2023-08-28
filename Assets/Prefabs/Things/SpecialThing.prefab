@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1469012980386934090}
-  - component: {fileID: 8633084327460768499}
+  - component: {fileID: 5199227338038775884}
   - component: {fileID: 6700752847402851139}
   - component: {fileID: 4430581351060662640}
   - component: {fileID: 6599313273911858380}
@@ -35,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8633084327460768499
+--- !u!114 &5199227338038775884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,11 +44,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7339127827850818784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e4f86a68af54ea290b1942e8f1c7020, type: 3}
+  m_Script: {fileID: 11500000, guid: f5206f31c69547cc9b27b3eb4bd3ced3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreForThing: 1
   _gameService: {fileID: 2460845399566678163, guid: 86da0e60052d64fc286bded3cc3de02d, type: 3}
+  _hp: 1
 --- !u!212 &6700752847402851139
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -164,7 +165,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.43333334, y: 0.39333335}
+    oldSize: {x: 0.325, y: 0.295}
     newSize: {x: 2.3, y: 1.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -35,6 +35,8 @@ namespace Things
                 if (needNotify)
                 {
                     OnHpChanged?.Invoke(_cachedHp);
+                    Debug.Log($"GameService OnHpChanged {_cachedHp}");
+
                 }
             }
         }
@@ -67,6 +69,11 @@ namespace Things
         #endregion
 
         #region Public methods
+
+        public void ChangeHp(int hp)
+        {
+            Hp += hp;
+        }
 
         public void ChangeScore(int score)
         {
