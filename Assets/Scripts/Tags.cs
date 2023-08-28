@@ -4,6 +4,8 @@ namespace Things
     {
         #region Variables
 
+        public const string GoodThing = "Good Thing";
+
         public const string Platform = "Platform";
 
         #endregion

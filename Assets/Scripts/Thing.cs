@@ -20,14 +20,13 @@ namespace Things
             if (other.gameObject.CompareTag(Tags.Platform))
             {
                 PerformActions();
+                Destroy(gameObject);
             }
-
-            Destroy(gameObject);
         }
 
         #endregion
 
-        #region Private methods
+        #region Protected methods
 
         protected virtual void PerformActions()
         {
