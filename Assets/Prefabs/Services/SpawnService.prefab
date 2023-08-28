@@ -49,3 +49,4 @@ MonoBehaviour:
   _thingPrefabs:
   - {fileID: 8633084327460768499, guid: d0f2cb68c6d0d4ff7802b5dfb2cdaa3c, type: 3}
   - {fileID: 8633084327460768499, guid: d5a89e1da07534ba5bc80667a495354f, type: 3}
+  - {fileID: 8633084327460768499, guid: 9815c276103c24e148df873f38a978c7, type: 3}

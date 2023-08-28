@@ -7,17 +7,37 @@ namespace Things
     {
         #region Variables
 
+        private static int _cachedHp;
         private static int _cachedScore;
+        [SerializeField] private int _initHp = 3;
 
         #endregion
 
         #region Events
+
+        public static event Action<int> OnHpChanged;
 
         public static event Action<int> OnScoreChanged;
 
         #endregion
 
         #region Properties
+
+        public static int Hp
+        {
+            get => _cachedHp;
+
+            private set
+            {
+                bool needNotify = _cachedHp != value;
+                _cachedHp = value;
+
+                if (needNotify)
+                {
+                    OnHpChanged?.Invoke(_cachedHp);
+                }
+            }
+        }
 
         public static int TotalScore
         {
@@ -48,7 +68,7 @@ namespace Things
 
         #region Public methods
 
-        public void AddScore(int score)
+        public void ChangeScore(int score)
         {
             TotalScore += score;
         }
@@ -60,6 +80,7 @@ namespace Things
         private void SetInitScores()
         {
             TotalScore = 0;
+            Hp = _initHp;
         }
 
         #endregion

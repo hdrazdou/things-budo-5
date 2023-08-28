@@ -2,7 +2,11 @@ namespace Things
 {
     public class Scenes
     {
-        public const string StartScene = "StartScene";
+        #region Variables
+
         public const string GameScene = "GameScene";
+        public const string StartScene = "StartScene";
+
+        #endregion
     }
 }

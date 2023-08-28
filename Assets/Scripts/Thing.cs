@@ -31,7 +31,7 @@ namespace Things
 
         private void PerformActions()
         {
-            _gameService.AddScore(_scoreForThing);
+            _gameService.ChangeScore(_scoreForThing);
         }
 
         #endregion
