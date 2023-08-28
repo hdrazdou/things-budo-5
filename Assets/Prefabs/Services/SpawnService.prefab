@@ -46,7 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _xLimitation: {x: -2.6, y: 2.6}
   _yLimitation: {x: 0, y: 4.6}
-  _thingPrefabs:
-  - {fileID: 8633084327460768499, guid: d0f2cb68c6d0d4ff7802b5dfb2cdaa3c, type: 3}
-  - {fileID: 8633084327460768499, guid: d5a89e1da07534ba5bc80667a495354f, type: 3}
-  - {fileID: 5199227338038775884, guid: 9815c276103c24e148df873f38a978c7, type: 3}
+  _things:
+  - Name: 'BadThing (Things.Thing) : 22'
+    SpawnWeight: 22
+    ThingPrefab: {fileID: 8633084327460768499, guid: d5a89e1da07534ba5bc80667a495354f, type: 3}
+  - Name: 'GoodThing (Things.Thing) : 15'
+    SpawnWeight: 15
+    ThingPrefab: {fileID: 8633084327460768499, guid: d0f2cb68c6d0d4ff7802b5dfb2cdaa3c, type: 3}
+  - Name: 'SpecialThing (Things.SpecialThing) : 8'
+    SpawnWeight: 8
+    ThingPrefab: {fileID: 5199227338038775884, guid: 9815c276103c24e148df873f38a978c7, type: 3}

@@ -35,8 +35,6 @@ namespace Things
                 if (needNotify)
                 {
                     OnHpChanged?.Invoke(_cachedHp);
-                    Debug.Log($"GameService OnHpChanged {_cachedHp}");
-
                 }
             }
         }
