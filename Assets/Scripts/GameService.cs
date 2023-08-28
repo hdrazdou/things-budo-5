@@ -19,6 +19,8 @@ namespace Things
 
         public static event Action<int> OnScoreChanged;
 
+        public event Action<int> OnGameOver;
+
         #endregion
 
         #region Properties
@@ -71,6 +73,11 @@ namespace Things
         public void ChangeHp(int hp)
         {
             Hp += hp;
+
+            if (Hp <= 0)
+            {
+                OnGameOver?.Invoke(TotalScore);
+            }
         }
 
         public void ChangeScore(int score)

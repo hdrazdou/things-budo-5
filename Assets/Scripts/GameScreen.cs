@@ -9,7 +9,6 @@ namespace Things
         #region Variables
 
         [SerializeField] private TMP_Text _scoreLabel;
-        [SerializeField] private TMP_Text _hpLabel;
         [SerializeField] private Transform _HpCounter;
         [SerializeField] private GameObject _hpPrefab;
         private readonly List<GameObject> _hpHearts = new();

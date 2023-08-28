@@ -57,14 +57,14 @@ namespace Things
 
         private Thing GetRandomThingByWeight()
         {
-            int TotalWeight = 0;
+            int totalWeight = 0;
 
             foreach (SpawnData spawnData in _things)
             {
-                TotalWeight += spawnData.SpawnWeight;
+                totalWeight += spawnData.SpawnWeight;
             }
 
-            int randomWeight = Random.Range(0, TotalWeight + 1);
+            int randomWeight = Random.Range(0, totalWeight + 1);
 
             int currentWeight = 0;
 
@@ -72,10 +72,12 @@ namespace Things
             {
                 currentWeight += _things[i].SpawnWeight;
 
-                if (currentWeight > randomWeight)
+                if (currentWeight >= randomWeight)
                 {
                     return _things[i].ThingPrefab;
                 }
+                Debug.Log($"currentWeight {currentWeight}");
+                Debug.Log($"randomWeight {randomWeight}");
             }
 
             return null;
