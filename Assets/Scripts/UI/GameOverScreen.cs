@@ -9,11 +9,14 @@ namespace Things
     {
         #region Variables
 
+        [Header("Services")]
+        [SerializeField] private GameService _gameService;
+
+        [Header("Components")]
         [SerializeField] private TMP_Text _gameOverScoreLabel;
         [SerializeField] private Button _restartButton;
         [SerializeField] private Button _exitButton;
         [SerializeField] private GameObject _gameOverUi;
-        [SerializeField] private GameService _gameService;
 
         #endregion
 
@@ -38,11 +41,11 @@ namespace Things
 
         private void OnExitButtonClicked()
         {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
-            #else
+#else
             Application.Quit();
-            #endif
+#endif
         }
 
         private void OnRestartButtonClicked()

@@ -6,8 +6,11 @@ namespace Things
     {
         #region Variables
 
+        [Header("Services")]
         [SerializeField] private GameService _gameService;
         [SerializeField] private AudioService _audioService;
+
+        [Header("Settings")]
         [SerializeField] private AudioClip _goodThingAudioClip;
 
         #endregion

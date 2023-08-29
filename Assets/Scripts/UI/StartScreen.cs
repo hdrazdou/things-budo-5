@@ -19,22 +19,9 @@ namespace Things
             _startButton.onClick.AddListener(OnStartButtonClicked);
         }
 
-        private void Update()
-        {
-            MoveWithMouse();
-        }
-
         #endregion
 
         #region Private methods
-
-        private void MoveWithMouse()
-        {
-            Vector3 mousePosition = Input.mousePosition;
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-            SetPosition(worldMousePosition);
-        }
 
         private void OnStartButtonClicked()
         {

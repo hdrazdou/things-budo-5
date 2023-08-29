@@ -7,10 +7,12 @@ namespace Things
     {
         #region Variables
 
-        [SerializeField] [Range(1f, 100f)] private int _percentMultiplier;
-
+        [Header("Settings")]
+        [Range(1f, 100f)]
+        [SerializeField]  private int _percentMultiplier;
         [SerializeField] private float _currentGravityScale;
         [SerializeField] private float _limitGravityScale = 1f;
+        
         private float _realMultiplier;
 
         #endregion

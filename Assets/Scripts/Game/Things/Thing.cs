@@ -8,10 +8,15 @@ namespace Things
     {
         #region Variables
 
+        [Header("Settings")]
         [SerializeField] private int _scoreForThing;
+
+        [Header("Services")]
         [SerializeField] protected GameService _gameService;
-        [SerializeField] protected Rigidbody2D _rb;
         [SerializeField] private FallingSpeedService _fallingSpeedService;
+
+        [Header("Components")]
+        [SerializeField] protected Rigidbody2D _rb;
 
         #endregion
 
