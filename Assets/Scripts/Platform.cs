@@ -6,8 +6,6 @@ namespace Things
     {
         #region Unity lifecycle
 
-        private void Start() { }
-
         private void Update()
         {
             MoveWithMouse();

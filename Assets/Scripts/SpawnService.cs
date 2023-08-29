@@ -76,9 +76,6 @@ namespace Things
                 {
                     return _things[i].ThingPrefab;
                 }
-
-                Debug.Log($"currentWeight {currentWeight}");
-                Debug.Log($"randomWeight {randomWeight}");
             }
 
             return null;

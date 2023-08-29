@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scoreForThing: -1
   _gameService: {fileID: 2460845399566678163, guid: 86da0e60052d64fc286bded3cc3de02d, type: 3}
+  _rb: {fileID: 4430581351060662640}
+  _fallingSpeedService: {fileID: 6134300134230955495, guid: 06f00f14bdbaa4a639e18667635a166b, type: 3}
 --- !u!212 &6700752847402851139
 SpriteRenderer:
   m_ObjectHideFlags: 0
