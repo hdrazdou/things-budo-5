@@ -7,6 +7,8 @@ namespace Things
         #region Variables
 
         [SerializeField] private GameService _gameService;
+        [SerializeField] private AudioService _audioService;
+        [SerializeField] private AudioClip _goodThingAudioClip;
 
         #endregion
 
@@ -22,6 +24,7 @@ namespace Things
             if (other.gameObject.CompareTag(Tags.GoodThing))
             {
                 _gameService.ChangeHp(-1);
+                _audioService.PlaySound(_goodThingAudioClip);
             }
 
             Destroy(other.gameObject);
