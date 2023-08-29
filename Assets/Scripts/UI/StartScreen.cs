@@ -1,3 +1,4 @@
+using Things.Game;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;

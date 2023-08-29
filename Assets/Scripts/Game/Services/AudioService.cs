@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Things
+namespace Things.Game.Services
 {
     public class AudioService : MonoBehaviour
     {

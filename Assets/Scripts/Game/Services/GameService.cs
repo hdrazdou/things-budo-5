@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Things
+namespace Things.Game.Services
 {
     public class GameService : MonoBehaviour
     {

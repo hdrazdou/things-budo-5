@@ -1,6 +1,7 @@
+using Things.Game.Services;
 using UnityEngine;
 
-namespace Things
+namespace Things.Game
 {
     public class Floor : MonoBehaviour
     {

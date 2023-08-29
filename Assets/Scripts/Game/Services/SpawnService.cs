@@ -1,8 +1,9 @@
 using System;
+using Things.Game.Things;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Things
+namespace Things.Game.Services
 {
     public class SpawnService : MonoBehaviour
     {

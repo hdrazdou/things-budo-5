@@ -1,6 +1,8 @@
+using System;
+using Things.Game.Services;
 using UnityEngine;
 
-namespace Things
+namespace Things.Game.Things
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(BoxCollider2D))]
@@ -20,6 +22,13 @@ namespace Things
 
         #endregion
 
+        #region Events
+
+        public static event Action<Thing> OnCreated;
+        public static event Action<Thing> OnDestroyed;
+
+        #endregion
+
         #region Properties
 
         protected GameService gameService => _gameService;
@@ -30,14 +39,14 @@ namespace Things
 
         private void Start()
         {
+            OnCreated?.Invoke(this);
             _fallingSpeedService = FindObjectOfType<FallingSpeedService>();
             _rb.gravityScale = _fallingSpeedService.GetActualGravityScale();
-            _fallingSpeedService.OnGravityChanged += ChangeGravity;
         }
 
         private void OnDestroy()
         {
-            _fallingSpeedService.OnGravityChanged -= ChangeGravity;
+            OnDestroyed?.Invoke(this);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -62,7 +71,7 @@ namespace Things
 
         #region Private methods
 
-        private void ChangeGravity(float changedGravityScale)
+        public void ChangeGravity(float changedGravityScale)
         {
             _rb.gravityScale = changedGravityScale;
         }

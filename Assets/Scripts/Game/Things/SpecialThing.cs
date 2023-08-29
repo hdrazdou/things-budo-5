@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Things
+namespace Things.Game.Things
 {
     public class SpecialThing : Thing
     {

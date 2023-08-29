@@ -1,7 +1,8 @@
 using System;
+using Things.Game.Things;
 using UnityEngine;
 
-namespace Things
+namespace Things.Game.Services
 {
     public class FallingSpeedService : MonoBehaviour
     {
@@ -12,6 +13,11 @@ namespace Things
         [SerializeField] private int _percentMultiplier;
         [SerializeField] private float _currentGravityScale;
         [SerializeField] private float _limitGravityScale = 1f;
+        
+        [Header("Settings")]
+        [SerializeField] private LevelService _levelService;
+
+        
 
         private float _realMultiplier;
 
@@ -27,7 +33,7 @@ namespace Things
 
         private void Start()
         {
-            _realMultiplier = (float)_percentMultiplier / 100 + 1;
+            _realMultiplier = _percentMultiplier / 100f + 1;
             InvokeRepeating("IncreaseSpeed", 1.0f, 1.0f);
         }
 
@@ -48,7 +54,11 @@ namespace Things
         {
             _currentGravityScale *= _realMultiplier;
             _currentGravityScale = Mathf.Clamp(_currentGravityScale, 0f, _limitGravityScale);
-            OnGravityChanged?.Invoke(_currentGravityScale);
+
+            foreach (Thing thing in _levelService.Things)
+            {
+                thing.ChangeGravity(_currentGravityScale);
+            }
         }
 
         #endregion

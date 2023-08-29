@@ -1,4 +1,4 @@
-namespace Things
+namespace Things.Game
 {
     public class Scenes
     {

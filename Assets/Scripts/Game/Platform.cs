@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Things
+namespace Things.Game
 {
     public class Platform : MonoBehaviour
     {
