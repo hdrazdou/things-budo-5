@@ -12,11 +12,17 @@ namespace Things
         [SerializeField] private int _scoreForThing;
 
         [Header("Services")]
-        [SerializeField] protected GameService _gameService;
+        [SerializeField] private GameService _gameService;
         [SerializeField] private FallingSpeedService _fallingSpeedService;
 
         [Header("Components")]
         [SerializeField] protected Rigidbody2D _rb;
+
+        #endregion
+
+        #region Properties
+
+        protected GameService gameService => _gameService;
 
         #endregion
 

@@ -9,10 +9,10 @@ namespace Things
 
         [Header("Settings")]
         [Range(1f, 100f)]
-        [SerializeField]  private int _percentMultiplier;
+        [SerializeField] private int _percentMultiplier;
         [SerializeField] private float _currentGravityScale;
         [SerializeField] private float _limitGravityScale = 1f;
-        
+
         private float _realMultiplier;
 
         #endregion

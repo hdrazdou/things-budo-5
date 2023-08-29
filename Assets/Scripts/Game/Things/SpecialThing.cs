@@ -16,7 +16,7 @@ namespace Things
         {
             base.PerformActions();
 
-            _gameService.ChangeHp(_hp);
+            gameService.ChangeHp(_hp);
         }
 
         #endregion
