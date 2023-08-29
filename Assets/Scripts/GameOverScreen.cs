@@ -47,11 +47,13 @@ namespace Things
 
         private void OnRestartButtonClicked()
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene(Scenes.StartScene);
         }
 
         private void ShowGameOver(int score)
         {
+            Time.timeScale = 0;
             _gameOverUi.SetActive(true);
             _gameOverScoreLabel.text = $"Your Score: {score}";
         }
