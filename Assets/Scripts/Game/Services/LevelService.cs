@@ -9,6 +9,11 @@ namespace Things.Game.Services
         #region Variables
 
         private readonly List<Thing> _things = new();
+
+        #endregion
+
+        #region Properties
+
         public List<Thing> Things => _things;
 
         #endregion

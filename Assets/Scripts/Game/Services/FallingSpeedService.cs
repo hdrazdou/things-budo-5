@@ -13,11 +13,9 @@ namespace Things.Game.Services
         [SerializeField] private int _percentMultiplier;
         [SerializeField] private float _currentGravityScale;
         [SerializeField] private float _limitGravityScale = 1f;
-        
+
         [Header("Settings")]
         [SerializeField] private LevelService _levelService;
-
-        
 
         private float _realMultiplier;
 

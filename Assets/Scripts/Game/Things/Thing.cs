@@ -60,20 +60,20 @@ namespace Things.Game.Things
 
         #endregion
 
+        #region Public methods
+
+        public void ChangeGravity(float changedGravityScale)
+        {
+            _rb.gravityScale = changedGravityScale;
+        }
+
+        #endregion
+
         #region Protected methods
 
         protected virtual void PerformActions()
         {
             _gameService.ChangeScore(_scoreForThing);
-        }
-
-        #endregion
-
-        #region Private methods
-
-        public void ChangeGravity(float changedGravityScale)
-        {
-            _rb.gravityScale = changedGravityScale;
         }
 
         #endregion

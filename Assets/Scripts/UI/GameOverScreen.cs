@@ -13,6 +13,7 @@ namespace Things
 
         [Header("Services")]
         [SerializeField] private GameService _gameService;
+        [SerializeField] private PauseService _pauseService;
 
         [Header("Components")]
         [SerializeField] private TMP_Text _gameOverScoreLabel;
@@ -52,13 +53,13 @@ namespace Things
 
         private void OnRestartButtonClicked()
         {
-            Time.timeScale = 1;
+            _pauseService.DisablePause();
             SceneManager.LoadScene(Scenes.StartScene);
         }
 
         private void ShowGameOver(int score)
         {
-            Time.timeScale = 0;
+            _pauseService.EnablePause();
             _gameOverUi.SetActive(true);
             _gameOverScoreLabel.text = $"Your Score: {score}";
         }
