@@ -29,13 +29,6 @@ namespace Things
             SceneManager.LoadScene(Scenes.GameScene);
         }
 
-        private void SetPosition(Vector3 mousePosition)
-        {
-            Vector3 currentPosition = transform.position;
-            currentPosition.x = mousePosition.x;
-            transform.position = currentPosition;
-        }
-
         #endregion
     }
 }

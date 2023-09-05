@@ -27,7 +27,6 @@ namespace Things.Game
         {
             if (other.gameObject.CompareTag(Tags.GoodThing))
             {
-                Debug.Log($"Floor OnTriggerEnter2D GoodThing gravityScale {other.attachedRigidbody.gravityScale}");
                 _gameService.ChangeHp(-1);
                 _audioService.PlaySound(_goodThingAudioClip);
             }

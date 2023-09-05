@@ -10,7 +10,7 @@ namespace Things
         #region Variables
 
         [SerializeField] private TMP_Text _scoreLabel;
-        [SerializeField] private Transform _HpCounter;
+        [SerializeField] private Transform _hpCounter;
         [SerializeField] private GameObject _hpPrefab;
         private readonly List<GameObject> _hpHearts = new();
 
@@ -41,7 +41,7 @@ namespace Things
         {
             for (int i = 0; i < hp; i++)
             {
-                _hpHearts.Add(Instantiate(_hpPrefab, _HpCounter));
+                _hpHearts.Add(Instantiate(_hpPrefab, _hpCounter));
             }
         }
 

@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _percentMultiplier: 5
   _currentGravityScale: 1
-  _limitGravityScale: 5
+  _limitGravityScale: 7
   _levelService: {fileID: 8782211523110807740, guid: 845c25757bb614d5ea3a8ee03dd8da81, type: 3}

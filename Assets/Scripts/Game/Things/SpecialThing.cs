@@ -1,3 +1,4 @@
+using Things.Game.Services;
 using UnityEngine;
 
 namespace Things.Game.Things
@@ -16,6 +17,7 @@ namespace Things.Game.Things
         {
             base.PerformActions();
 
+            GameService gameService = FindObjectOfType<GameService>();
             gameService.ChangeHp(_hp);
         }
 

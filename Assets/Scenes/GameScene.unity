@@ -1855,7 +1855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreLabel: {fileID: 1287095802}
-  _HpCounter: {fileID: 144831909}
+  _hpCounter: {fileID: 0}
   _hpPrefab: {fileID: 8909053320680496848, guid: 7150968b85eb9482d8c8d854c186af86, type: 3}
 --- !u!1001 &516666906929710406
 PrefabInstance:

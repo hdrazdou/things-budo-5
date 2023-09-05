@@ -37,7 +37,6 @@ namespace Things.Game.Services
         private void AddThing(Thing thing)
         {
             _things.Add(thing);
-            Debug.Log($"LevelService AddThing {_things}");
         }
 
         private void RemoveThing(Thing thing)

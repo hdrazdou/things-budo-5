@@ -13,12 +13,8 @@ namespace Things.Game.Things
         [Header("Settings")]
         [SerializeField] private int _scoreForThing;
 
-        [Header("Services")]
-        [SerializeField] private GameService _gameService;
-        [SerializeField] private FallingSpeedService _fallingSpeedService;
-
         [Header("Components")]
-        [SerializeField] protected Rigidbody2D _rb;
+        [SerializeField] private Rigidbody2D _rb;
 
         #endregion
 
@@ -29,19 +25,12 @@ namespace Things.Game.Things
 
         #endregion
 
-        #region Properties
-
-        protected GameService gameService => _gameService;
-
-        #endregion
-
         #region Unity lifecycle
 
         private void Start()
         {
             OnCreated?.Invoke(this);
-            _fallingSpeedService = FindObjectOfType<FallingSpeedService>();
-            _rb.gravityScale = _fallingSpeedService.GetActualGravityScale();
+            SetGravityScale();
         }
 
         private void OnDestroy()
@@ -73,7 +62,18 @@ namespace Things.Game.Things
 
         protected virtual void PerformActions()
         {
-            _gameService.ChangeScore(_scoreForThing);
+            GameService gameService = FindObjectOfType<GameService>();
+            gameService.ChangeScore(_scoreForThing);
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private void SetGravityScale()
+        {
+            FallingSpeedService fallingSpeedService = FindObjectOfType<FallingSpeedService>();
+            _rb.gravityScale = fallingSpeedService.GetActualGravityScale();
         }
 
         #endregion

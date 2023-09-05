@@ -1,4 +1,3 @@
-using System;
 using Things.Game.Things;
 using UnityEngine;
 
@@ -18,12 +17,6 @@ namespace Things.Game.Services
         [SerializeField] private LevelService _levelService;
 
         private float _realMultiplier;
-
-        #endregion
-
-        #region Events
-
-        public event Action<float> OnGravityChanged;
 
         #endregion
 
