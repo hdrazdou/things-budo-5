@@ -1,3 +1,4 @@
+using System.Collections;
 using Things.Game.Things;
 using UnityEngine;
 
@@ -13,9 +14,6 @@ namespace Things.Game.Services
         [SerializeField] private float _currentGravityScale;
         [SerializeField] private float _limitGravityScale = 1f;
 
-        [Header("Settings")]
-        [SerializeField] private LevelService _levelService;
-
         private float _realMultiplier;
 
         #endregion
@@ -25,7 +23,8 @@ namespace Things.Game.Services
         private void Start()
         {
             _realMultiplier = _percentMultiplier / 100f + 1;
-            InvokeRepeating("IncreaseSpeed", 1.0f, 1.0f);
+
+            StartCoroutine(IncreaseSpeed());
         }
 
         #endregion
@@ -41,14 +40,27 @@ namespace Things.Game.Services
 
         #region Private methods
 
-        private void IncreaseSpeed()
+        private IEnumerator IncreaseSpeed()
         {
-            _currentGravityScale *= _realMultiplier;
-            _currentGravityScale = Mathf.Clamp(_currentGravityScale, 0f, _limitGravityScale);
+            GameService gameService = FindObjectOfType<GameService>();
+            LevelService levelService = FindObjectOfType<LevelService>();
 
-            foreach (Thing thing in _levelService.Things)
+            yield return new WaitForSeconds(1f);
+
+            while (!gameService.IsGameOver)
             {
-                thing.ChangeGravity(_currentGravityScale);
+                _currentGravityScale *= _realMultiplier;
+                _currentGravityScale = Mathf.Clamp(_currentGravityScale, 0f, _limitGravityScale);
+
+                if (levelService.Things != null)
+                {
+                    foreach (Thing thing in levelService.Things)
+                    {
+                        thing.ChangeGravity(_currentGravityScale);
+                    }
+                }
+
+                yield return new WaitForSeconds(1.1f);
             }
         }
 

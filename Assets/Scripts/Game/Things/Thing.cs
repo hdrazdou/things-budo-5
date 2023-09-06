@@ -53,6 +53,11 @@ namespace Things.Game.Things
 
         public void ChangeGravity(float changedGravityScale)
         {
+            if (this == null)
+            {
+                return;
+            }
+
             _rb.gravityScale = changedGravityScale;
         }
 

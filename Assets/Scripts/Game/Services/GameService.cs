@@ -10,6 +10,8 @@ namespace Things.Game.Services
         private static int _cachedHp;
         private static int _cachedScore;
         [SerializeField] private int _initHp = 3;
+        private bool _isGameOver;
+        public bool IsGameOver => _isGameOver;
 
         #endregion
 
@@ -77,6 +79,7 @@ namespace Things.Game.Services
             if (Hp <= 0)
             {
                 OnGameOver?.Invoke(TotalScore);
+                _isGameOver = true;
             }
         }
 
@@ -93,6 +96,7 @@ namespace Things.Game.Services
         {
             TotalScore = 0;
             Hp = _initHp;
+            _isGameOver = false;
         }
 
         #endregion

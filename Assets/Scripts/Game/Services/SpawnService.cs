@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Things.Game.Things;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -9,10 +10,12 @@ namespace Things.Game.Services
     {
         #region Variables
 
-        [SerializeField] private Vector2 _xLimitation;
-        [SerializeField] private Vector2 _yLimitation;
-
+        [SerializeField] private float _spawnPadding;
+        [SerializeField] private float _spawnDelay;
         [SerializeField] private SpawnData[] _things;
+
+        private float _heightLimit;
+        private float _widthLimit;
 
         #endregion
 
@@ -20,7 +23,8 @@ namespace Things.Game.Services
 
         private void Start()
         {
-            InvokeRepeating("CreateThing", 1.0f, 1.0f);
+            CalculateSpawnLimits();
+            StartCoroutine(CreateThing());
         }
 
         private void OnValidate()
@@ -40,18 +44,35 @@ namespace Things.Game.Services
 
         #region Private methods
 
-        private void CreateThing()
+        private void CalculateSpawnLimits()
         {
-            Vector2 randomPosition = GetRandomPosition();
-            Thing randomThing = GetRandomThingByWeight();
+            float cameraSize = Camera.main.orthographicSize;
+            float cameraHalfWidth = Camera.main.aspect * cameraSize;
 
-            Instantiate(randomThing, randomPosition, Quaternion.identity);
+            _widthLimit = cameraHalfWidth - _spawnPadding;
+            _heightLimit = cameraSize - _spawnPadding;
+        }
+
+        private IEnumerator CreateThing()
+        {
+            GameService gameService = FindObjectOfType<GameService>();
+
+            yield return new WaitForSeconds(_spawnDelay);
+
+            while (!gameService.IsGameOver)
+            {
+                Vector2 randomPosition = GetRandomPosition();
+                Thing randomThing = GetRandomThingByWeight();
+                Instantiate(randomThing, randomPosition, Quaternion.identity);
+
+                yield return new WaitForSeconds(_spawnDelay);
+            }
         }
 
         private Vector2 GetRandomPosition()
         {
-            float x = Random.Range(_xLimitation.x, _xLimitation.y);
-            float y = Random.Range(_yLimitation.x, _yLimitation.y);
+            float x = Random.Range(-_widthLimit, _widthLimit);
+            float y = Random.Range(0, _heightLimit);
 
             return new Vector2(x, y);
         }
